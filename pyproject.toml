@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "envdrift"
+version = "1.0.0"
+description = "Multi-environment variable drift detector with live Rich UI and AI remediation advice"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "iamgeetarted", email = "marktimothydorsey@gmail.com"}]
+keywords = ["env", "dotenv", "environment", "drift", "devops", "cli", "async", "rich", "ai"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+    "Topic :: System :: Systems Administration",
+]
+dependencies = [
+    "rich>=12.0",
+    "anthropic>=0.20.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pytest-asyncio>=0.23"]
+
+[project.scripts]
+envdrift = "envdrift.cli:entry_point"
+
+[project.urls]
+Homepage = "https://github.com/iamgeetarted/envdrift"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
